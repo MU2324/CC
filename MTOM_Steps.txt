@@ -1,0 +1,55 @@
+		MTOM
+
+Open Visual Studio (Steps/Structue may vary from version to version)
+
+1. New { ASP.NET Web Application (.NET Framework) }  project
+2. In Solution Explorer -> On Project name (Click) -> Add -> New Item -> Web Service (Name it : DownloadImageWS)
+
+///////////////This code may not work
+
+Add Code below HelloWorld(){}
+
+	[WebMethod,Description("Get Image Content")]
+	public byte[] GetImageFile(string fileName) {
+		if(System.IO.File.Exists(Server.MapPath("~/Images/") + fileName)) {
+			return System.IO.File.ReadAllBytes(Server.MapPath("~/Images/") + fileName);
+		}
+		else {
+			return new byte[] {0};
+		}
+	}
+
+
+3. In Solution Explorer -> On Project name (Click) -> Add -> New Item -> Generic Handler (Name it : MyHandler)
+
+///////////////This code may not work
+
+Create Object of Web Service Name
+Modify code inside ProcessRequest()
+
+ProcessRequest(HttpContext context){
+	DownloadImageWS ws = new DownloadImageWS();
+	byte[] binImage = ws.GetImageFile(context.Request["fileName"]);
+	if(binImage.Length == 1) {}
+	else {
+		context.Response.ContentType = "image/jpeg";
+		context.Response.BinaryWrite(binImage);
+	}
+}
+
+
+4. In Solution Explorer -> On Project name (Click) -> Add -> New Item -> Web Form
+Add Label , TextBox , Image and Button with Drag and Drop by clicking on ToolBox
+Click On properties of TextBox and set ID to 'txt1'
+Click On properties of Image and set ID to 'MyImage'
+Double Click on the newly dragged Button (it will open a file) -> Edit the protected void btnl_Click() {}
+///////////////This code may not work
+
+protected void btnl_Click(object sender , EventArgs e) {
+	MyImage.ImageUrl = "~/MyHandler.ashx?fileName=" + txt1.Text;
+	Response.Write("Downloading Image");
+}
+
+5. In Solution Explorer -> In Project name create 'Images' folder and add images to it
+
+Save all files , then in the web form right click and view in browser
