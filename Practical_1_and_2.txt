@@ -1,0 +1,22 @@
+Practical 1 and 2 (SOAP)
+Netbeans
+		Create Web Service
+1. Create new project
+	-> Select  Java Web ->  Web Application
+2. Give project name -> Select GlassFish Server (JavaEE Version = Java EE 7 Web) -> Next -> Finish
+3. Select your project name (Click)
+	-> New -> Web Service
+4. Give Web Service name
+	-> Give package name (eg:- com.my.exampleWS)
+5. Go to Web Services folder and inside your class add appropriate code with referendce from the default hello method
+6. Clean Build by clicking on project name then deploy and then test the webservice.
+
+		Consume Web Service
+1. Create new project	
+	-> Java -> Java Application -> Next -> Give Name -> Finish
+2. Select your project name (Click)
+	-> New -> Web Service Client -> Project -> Browse -> select your first project -> Select web service
+3. Open the Web Service References folder till you see your methods
+4. Drag and drop these methods into your main java class
+5. Use these methods in your main method inside try catch block
+6. Run file

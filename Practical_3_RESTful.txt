@@ -1,0 +1,20 @@
+Same as Practical 1 and 2 (SOAP)
+Netbeans
+		Create RESTFul Service
+1. Create new project
+	-> Select  Java Web ->  Web Application
+2. Give project name -> Select GlassFish Server (JavaEE Version = Java EE 7 Web) -> Next -> Finish
+3. Select your project name (Click)
+	-> New -> RESTFul Web Service from patterns
+	-> Select pattern -> Simple Root Resources -> Next
+4. Give project name , resource package (eg:- StringOperations) , path(generic) , class name(StringOperations) , MIME type(text/html)
+5. Go to your StringOperations.java file
+6. Create to PUT methods with help of the default put method , add path to it (@Path("/Lowercase"))
+7. Clean Build by clicking on project name then deploy and then test the webservice.
+
+		Consume RESTFul Service
+1. Create new project	
+	-> Java -> Java Application -> Next -> Give Name -> Finish
+2. Select your project name (Click)
+	-> New -> RESTFul Java Client -> Give Project name , class name , package -> Select from REST Resource from project -> Browse -> select your first project -> Select restfulservice
+3. Source Package -> project name file present -> projectname.java -> write your code

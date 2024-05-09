@@ -1,0 +1,31 @@
+		FOSS Installation
+
+Set Network Adapter to Host Only
+Enable Virtualization in Machine settings
+(4 CPU Cores , (Try 6GB RAM) , (Try 150GB Storage))
+
+Use the foss server iso file , apply the above settings -> Start
+
+1. Select -> FOSS-Cloud Installer : default boot options
+2. Press Enter on Load Keymap
+3. Type 'yes' on do you want to start the installation
+4. Type 1 when asked to install the server (Demo-system)
+5. It will show options like 'sda' , 'sdb' , etc , choose appropriate
+6. Type 'yes' when asked do you want to continue
+7. Enter the available network device (eg:- enp1s0 , eth0 , etc)
+8. Enter 'yes' when asked to enable DHCP
+9. Enter 'yes' when asked to reboot
+10. Login with username and password
+11. Enter the command : fc-node-configuration -n demo-system --password admin
+
+		Create VM on FOSS
+
+Install Virt Viewer (Check the path where it is been installed) and Spice Client on your Windows machine
+Open Registry Editor -> HKEY_CLASSES_ROOT -> spice -> shell -> open -> command
+	-> Click on Default , Click Modify , in value data field enter the bin path of virt viewer and add the name to it( {path}\bin\remote-viewer ) 
+Login to FOSS by entering its IP in browser
+
+1. Virtual Machine -> Profiles -> Upload ISO File -> (Choose your ubuntu iso file and upload)
+2. Virtual Machine -> Profiles -> Create -> ( expand linux , select en-US ) -> (RAM 4 OR 3 GB) (Storage 25 GB)
+3. Virtual Machine -> VM Templates -> Create -> (expand linux) -> select VM Pool and Node , 1 Display -> Create
+The VM will show as stopped , start the machine , and in view it by clicking the button in the action field
